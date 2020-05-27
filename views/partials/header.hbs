@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="inner_header">
+      <div class="logo_container">
+        <img src="/static/images/logo.png">
+        <h1>ORGANIC<span>SHOP</span></h1>
+      </div>
+      <ul class="navigation">
+        <a href="/about"><li>about</li></a>
+        <a href="/catalog"><li>catalog</li></a>
+        <a href="/contact"><li>contact</li></a>
+
+        {{#unless login}}
+        <a href="/entry"><li><span>entry</span></li></a>
+
+        {{else}}
+
+        <a id='cart' href="/order/cart"><li>cart</li></a>
+        <a href="/history"><li>history</li></a>
+        <a href="/exit"><li><span>exit</span></li></a>
+        {{/unless}}
+      </ul>
+    </div>
+</div>

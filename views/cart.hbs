@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+
+<div class="cart">
+    {{#if Products.0.name}}
+    <div class="title">CURRENT CART</div>
+        <div class="cart-items">
+        {{#each Products}}
+        <div class="cart-item">
+            <button onclick="delItem('{{this.id}}', this)" class="cart-delete-btn"><i class="fas fa-times"></i></button>
+            <img src="{{this.photo}}" alt="">
+            <div class="cart-item-info">
+                <div class="cart-item-info-title">{{this.name}}</div>
+                {{!-- <div>AMOUNT:</div> --}}
+                <div class="cart-item-info-amount">
+                    <button class="minus-btn" onclick="DecreaseItem('{{this.id}}', this)"><div class="cart-item-info-amount-minus"><i class="fas fa-minus"></i></div></button>
+                    <div class="cart-item-info-amount-value">{{this.count}}</div>
+                    <button class="plus-btn" onclick="IncreaseItem('{{this.id}}', this)"><div class="cart-item-info-amount-plus"><i class="fas fa-plus"></i></div></button>
+                </div>    
+                <div class="cart-item-info-price">PRICE:<strong><span class="product-price">{{this.cost}}</span>$</strong></div>        
+            </div>
+        </div>       
+              {{/each}}
+                  <div class="info-text">
+        <p>There are no products in the cart. Add products using the <a href="/catalog">catalog</a></p>
+    </div>
+    </div>
+    <div class="footer-cart">
+         <div class="totalprice">FULL PRICE: <strong><span id="fullPrice">{{summa}}</span>$</strong></div>
+         <button class="btn-order" onclick="CompleteOrder()">order</button>      
+    </div>
+
+
+    {{else}}
+        <p>The cart is empty. Add a product using <a href="/catalog">catalog</a></p>
+    {{/if}}
+</div>
+    <script src="/static/js/cart.js"></script>

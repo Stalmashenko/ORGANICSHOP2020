@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/static/css/catalog.css">
+
+<div class="products-items">
+
+{{#if Products.0.name}}
+            {{#each Products}}
+            <div class="product-item">
+                <div class="product">
+                    <div class="product-photo">
+	                    <img class="product-photo-locale" src="{{this.photo}}" alt="{{this.name}}">
+                    </div>
+                    <div class="product-container">
+                        <div class="product-title">{{this.name}}</div>
+                        <div class="product-description">{{this.description}}</div>
+                        <div class="product-price">{{this.cost}}$</div>
+                        <button onclick="addToCart('{{this.id}}', this)">add to cart</button>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    {{else}}
+    <p>No products at the moment. Visit our site later</p>
+{{/if}}
+</div>
+    <script src="/static/js/cart.js"></script>

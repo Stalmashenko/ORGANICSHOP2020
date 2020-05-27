@@ -1,0 +1,16 @@
+<h1>ORDERS</h1>
+{{#if Orders.0.name}}
+            {{#each Orders}}
+            <div class="product-item">
+                <div class="product">
+                    <div class="product-container">
+                        <div class="product-title">{{this.name}}</div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    {{else}}
+    <p>No Orders at the moment. Visit our site later</p>
+{{/if}}
+</div>
+
